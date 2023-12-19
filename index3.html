@@ -13,7 +13,6 @@
     <script type="text/javascript" src="https://partners-kakao.staging.yogiyo.co.kr/sdk/toast.js"></script>
     <script type="text/javascript" src="https://partners-kakao.staging.yogiyo.co.kr/sdk/postMessage.js"></script>
 	<script type="text/javascript" src="https://promoyo.staging.yogiyo.co.kr/contents/base/app-action.js"></script>
-	<script type="text/javascript" src="https://promoyo.staging.yogiyo.co.kr/contents/base/content-draw.js"></script>
     <script type="text/javascript" src="https://promoyo.staging.yogiyo.co.kr/contents/base/http-client.js"></script>
     <script>
         const serverInfo = {
@@ -34,7 +33,52 @@
         contents.set("2324", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: img({src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/da40b62b-1572-4838-8ab0-aed17e0463ec.png", onclick: linkService.goLink, "data-action-type": LINK_TYPE.COUPON_DOWNLOAD, "data-action-info": "gAAAAABleRULeIR7JuT-Oo5Qv2RdnoEw2XsEN_1Wn6XoQ085Ri1CwCMQra8TrJw68I_g5zXpJlzut3O1DA3tg2DvM27Ck-Y4lsyIvmoLutGido654UOaNy8=", alt: "날짜별분기 테스트"}) });
         contents.set("2325", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: img({src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/da40b62b-1572-4838-8ab0-aed17e0463ec.png", onclick: linkService.goLink, "data-action-type": LINK_TYPE.COUPON_DOWNLOAD, "data-action-info": "gAAAAABleRUL3EmWozYJRovh3Klz8DR_sKoKEMnrYOOSqVb4t7BY1K51z_XOPTxJMVphDD2S4LK_qwpQ8WlBUY8bJE5QiovfHsY2pcjDYId1LAzYTcwlpqM=", alt: "날짜별분기 테스트"}) });
         contents.set("2326", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: img({src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/02fda521-4b69-4e2f-b6e9-4ce8e8c5cad7.png", onclick: linkService.goLink, "data-action-type": LINK_TYPE.COUPON_DOWNLOAD, "data-action-info": "gAAAAABleRULt1PI75YZJJkknsMsFrBJ080g_rlShDUXdkcA0YIx-fK4fUIh7F7_Tcs0aRAF_SR0mekFQesaREHnch-R8C6ZZciTyiYlgJwfswzaTy1sg7o=", alt: "날짜별분기 테스트"}) });
+
+	function drawContents() {
+	    for (const slot of slots) {
+		const divArea = document.getElementById(slot);
+	        const contents = statusService.getContent(slot);
+	        var vanObj = contents.data
+	        if (contents.type == CONTENT_TYPE.MARKDOWN) {
+	            divArea.innerHTML = marked.parse(contents.data)
+	        } else {
+	            van.add(divArea, contents.data);
+	        }
+	        divArea.classList.add(...getStyleClass(slot));
+	    }
+	} 
+
+	function getStyleClass(id) {
+		const styleNames = []
+	        switch (contents.get(id).type) {
+	            case CONTENT_TYPE.SINGLE:
+	                styleNames.push("image")
+	                break;
+	            case CONTENT_TYPE.DUAL:
+	                styleNames.push("image")
+	                break;
+	            case CONTENT_TYPE.MARKDOWN:
+	                styleNames.push("markdown")
+	                break;
+	            default:
+	                break;
+	        }
+	        return styleNames.concat(contents.get(id).style);
+	}
+	    
     </script>
 </head>
-<body onload="initService.initPage()">
+<body onload="drawContents()">
+
+<div class="contents-wrap">
+    <div id="2321" class="image"></div>
+    <div id="2322" class="image"></div>
+    <div id="2323" class="image"></div>
+    <div id="2324" class="image"></div>
+    <div id="2325" class="image"></div>
+    <div id="2326" class="image"></div>
+    <div id="0"></div>
+</div>
+
+
 </body></html>
