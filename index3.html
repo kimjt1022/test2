@@ -37,12 +37,12 @@
 	function drawContents() {
 	    for (const slot of slots) {
 		const divArea = document.getElementById(slot);
-	        const contents = statusService.getContent(slot);
-	        var vanObj = contents.data
-	        if (contents.type == CONTENT_TYPE.MARKDOWN) {
+	        const slotContents = contents.get(slot);
+	        var vanObj = slotContents.data
+	        if (slotContents.type == CONTENT_TYPE.MARKDOWN) {
 	            divArea.innerHTML = marked.parse(contents.data)
 	        } else {
-	            van.add(divArea, contents.data);
+	            van.add(divArea, slotContents.data);
 	        }
 	        divArea.classList.add(...getStyleClass(slot));
 	    }
