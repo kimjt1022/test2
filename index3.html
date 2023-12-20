@@ -188,7 +188,7 @@ const initService = {
                 if (contents.type == CONTENT_TYPE.MARKDOWN) {
                     divArea.innerHTML = marked.parse(contents.data)
                 } else {
-                    van.add(divArea, contents.data);
+                    van.add(divArea, img(contents.data));
                 }
                 divArea.classList.add(...statusService.getStyleClass(slot));
             } else {
@@ -233,12 +233,12 @@ const initService = {
         const envName = "G_STAGE";
         const slots = ["2321", "2322", "2323", "2324", "2325", "2326", "0"];
         const contents = new Map();
-        contents.set("2321", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: img({src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/4af830a7-348a-4595-837f-9527ba06738a.png", alt: "날짜별분기 테스트"}) });
-        contents.set("2322", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: img({src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/38cf7396-bbd1-4d98-9d68-efda0f741336.png", alt: "날짜별분기 테스트"}) });
-        contents.set("2323", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: img({src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/2588ee19-44cb-4abc-926e-fbafe696b899.png", alt: "날짜별분기 테스트"}) });
-        contents.set("2324", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: img({src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/da40b62b-1572-4838-8ab0-aed17e0463ec.png", onclick: linkService.goLink, "data-action-type": LINK_TYPE.COUPON_DOWNLOAD, "data-action-info": "gAAAAABleRULeIR7JuT-Oo5Qv2RdnoEw2XsEN_1Wn6XoQ085Ri1CwCMQra8TrJw68I_g5zXpJlzut3O1DA3tg2DvM27Ck-Y4lsyIvmoLutGido654UOaNy8=", alt: "날짜별분기 테스트"}) });
-        contents.set("2325", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: img({src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/da40b62b-1572-4838-8ab0-aed17e0463ec.png", onclick: linkService.goLink, "data-action-type": LINK_TYPE.COUPON_DOWNLOAD, "data-action-info": "gAAAAABleRUL3EmWozYJRovh3Klz8DR_sKoKEMnrYOOSqVb4t7BY1K51z_XOPTxJMVphDD2S4LK_qwpQ8WlBUY8bJE5QiovfHsY2pcjDYId1LAzYTcwlpqM=", alt: "날짜별분기 테스트"}) });
-        contents.set("2326", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: img({src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/02fda521-4b69-4e2f-b6e9-4ce8e8c5cad7.png", onclick: linkService.goLink, "data-action-type": LINK_TYPE.COUPON_DOWNLOAD, "data-action-info": "gAAAAABleRULt1PI75YZJJkknsMsFrBJ080g_rlShDUXdkcA0YIx-fK4fUIh7F7_Tcs0aRAF_SR0mekFQesaREHnch-R8C6ZZciTyiYlgJwfswzaTy1sg7o=", alt: "날짜별분기 테스트"}) });
+        contents.set("2321", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: {src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/4af830a7-348a-4595-837f-9527ba06738a.png", alt: "날짜별분기 테스트"} });
+        contents.set("2322", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: {src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/38cf7396-bbd1-4d98-9d68-efda0f741336.png", alt: "날짜별분기 테스트"} });
+        contents.set("2323", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: {src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/2588ee19-44cb-4abc-926e-fbafe696b899.png", alt: "날짜별분기 테스트"} });
+        contents.set("2324", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: {src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/da40b62b-1572-4838-8ab0-aed17e0463ec.png", onclick: linkService.goLink, "data-action-type": LINK_TYPE.COUPON_DOWNLOAD, "data-action-info": "gAAAAABleRULeIR7JuT-Oo5Qv2RdnoEw2XsEN_1Wn6XoQ085Ri1CwCMQra8TrJw68I_g5zXpJlzut3O1DA3tg2DvM27Ck-Y4lsyIvmoLutGido654UOaNy8=", alt: "날짜별분기 테스트"} });
+        contents.set("2325", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: {src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/da40b62b-1572-4838-8ab0-aed17e0463ec.png", onclick: linkService.goLink, "data-action-type": LINK_TYPE.COUPON_DOWNLOAD, "data-action-info": "gAAAAABleRUL3EmWozYJRovh3Klz8DR_sKoKEMnrYOOSqVb4t7BY1K51z_XOPTxJMVphDD2S4LK_qwpQ8WlBUY8bJE5QiovfHsY2pcjDYId1LAzYTcwlpqM=", alt: "날짜별분기 테스트"} });
+        contents.set("2326", { type: CONTENT_TYPE.SINGLE, condition: [], style: [], data: {src: "https://images-staging.yogiyo.co.kr/image/yogiyo-staging/contents/management/202310/jfq2mepp/02fda521-4b69-4e2f-b6e9-4ce8e8c5cad7.png", onclick: linkService.goLink, "data-action-type": LINK_TYPE.COUPON_DOWNLOAD, "data-action-info": "gAAAAABleRULt1PI75YZJJkknsMsFrBJ080g_rlShDUXdkcA0YIx-fK4fUIh7F7_Tcs0aRAF_SR0mekFQesaREHnch-R8C6ZZciTyiYlgJwfswzaTy1sg7o=", alt: "날짜별분기 테스트"} });
 
 	
 
