@@ -188,7 +188,11 @@ const initService = {
                 if (contents.type == CONTENT_TYPE.MARKDOWN) {
                     divArea.innerHTML = marked.parse(contents.data)
                 } else {
-                    van.add(divArea, img(contents.data));
+                    // van.add(divArea, img(contents.data));
+		    const imgElement = document.createElement('img');
+                    imgElement.src = content.data.src;
+                    imgElement.alt = content.data.alt;
+                    divArea.appendChild(imgElement);
                 }
                 divArea.classList.add(...statusService.getStyleClass(slot));
             } else {
