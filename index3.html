@@ -73,7 +73,7 @@ const statusService = {
         initService.setToday()
         const useAPP = statusService.getUseApp()
         const checkContents = contents.get(id);
-        console.log(checkContents.condition)
+        // console.log(checkContents.condition)
         if (checkContents && checkContents.condition) {
             for (const slotCondition of checkContents.condition) {
                 console.log(slotCondition, today)
