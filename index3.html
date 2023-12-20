@@ -38,6 +38,7 @@
 	    for (const slot of slots) {
 		const divArea = document.getElementById(slot);
 	        const slotContents = contents.get(slot);
+		    console.log(slotContents, slot);
 	        var vanObj = slotContents.data
 	        if (slotContents.type == CONTENT_TYPE.MARKDOWN) {
 	            divArea.innerHTML = marked.parse(contents.data)
