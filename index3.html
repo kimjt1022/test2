@@ -15,6 +15,12 @@
 	<script type="text/javascript" src="https://promoyo.staging.yogiyo.co.kr/contents/base/app-action.js"></script>
     <script type="text/javascript" src="https://promoyo.staging.yogiyo.co.kr/contents/base/http-client.js"></script>
     <script>
+	const CONTENT_TYPE = {
+	    // SlotCode 참조
+	    SINGLE: "SINGLE",
+	    DUAL: "DUAL",
+	    MARKDOWN: "MARKDOWN"
+	}
         const serverInfo = {
             messageTarget: "https://partners-kakao.staging.yogiyo.co.kr",
             partnerApi: "https://partner-api.openapi.staging.yogiyo.co.kr",
@@ -40,12 +46,7 @@ const USE_APP = {
     YOGIYO: "YOGIYO",
     KAKAO: "KAKAO"
 }
-const CONTENT_TYPE = {
-    // SlotCode 참조
-    SINGLE: "SINGLE",
-    DUAL: "DUAL",
-    MARKDOWN: "MARKDOWN"
-}
+
 const BRANCH_TYPE = {
     // BranchSlotCode 참조
     DATE: "DATE"
