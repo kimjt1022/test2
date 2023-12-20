@@ -16,6 +16,28 @@
     <script type="text/javascript" src="https://promoyo.staging.yogiyo.co.kr/contents/base/http-client.js"></script>
     <script>
 	    const {img, div, h1, h2, h3, h4, h5, h6, ul, ol, li} = van.tags
+
+	    const linkService = {
+    self: this,
+    goLink: function (event) {
+        const actionType = event.target.dataset.actionType;
+        const actionInfo = event.target.dataset.actionInfo;
+        const useService = linkService.getUseService();
+        useService.goLink(actionType, actionInfo);
+    },
+    getUseService: function () {
+        const useApp = statusService.getUseApp();
+        switch (useApp) {
+            case USE_APP.YOGIYO:
+                return appLinkService.yogiyo;
+            case USE_APP.KAKAO:
+                return appLinkService.kakao;
+            default:
+                return null;
+        }
+    }
+}
+	    
 	const CONTENT_TYPE = {
 	    // SlotCode 참조
 	    SINGLE: "SINGLE",
@@ -159,27 +181,6 @@ const authService = {
         const useService = authService.getUseService()
         useService.initToken(inData.access_token, inData.refresh_token)
         console.log("token 초기화!!!" + JSON.stringify(inData))
-    }
-}
-
-const linkService = {
-    self: this,
-    goLink: function (event) {
-        const actionType = event.target.dataset.actionType;
-        const actionInfo = event.target.dataset.actionInfo;
-        const useService = linkService.getUseService();
-        useService.goLink(actionType, actionInfo);
-    },
-    getUseService: function () {
-        const useApp = statusService.getUseApp();
-        switch (useApp) {
-            case USE_APP.YOGIYO:
-                return appLinkService.yogiyo;
-            case USE_APP.KAKAO:
-                return appLinkService.kakao;
-            default:
-                return null;
-        }
     }
 }
 
